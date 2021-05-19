@@ -1,22 +1,16 @@
-const inputElement = document.querySelector('input')
-const headerTwoElement = document.querySelector('h2')
-
-const updateTeamName = event => {
-  const currentInputValue = event.target.value
-  headerTwoElement.innerText = currentInputValue
+function updateTeamName(event) {
+  const teamName = document.querySelector('.team1 h2')
+  teamName.textContent = event.target.value
 }
+document.querySelector('.team1 input').addEventListener('input', updateTeamName)
 
-inputElement.addEventListener('input', updateTeamName)
-
-const addition = document.querySelector('.add')
-let headerThreeElement = document.querySelector('h3')
-
-const addScore = eventTwo => {
-  const addButton = eventTwo.target
-  // const addButton = eventTwo.target
-  // headerThreeElement.value = 1
+let moveCounter = 0
+function updateScore(event) {
+  moveCounter++
+  const addScore = document.querySelector('.team1 h3')
+  addScore.textContent = moveCounter
 }
-addition.addEventListener('click', addScore)
+document.querySelector('.add').addEventListener('click', updateScore)
 
 function main() {}
 
