@@ -5,12 +5,19 @@ function updateTeamName(event) {
 document.querySelector('.team1 input').addEventListener('input', updateTeamName)
 
 let moveCounter = 0
-function updateScore(event) {
+function updateScoreAddition(event) {
   moveCounter++
   const addScore = document.querySelector('.team1 h3')
   addScore.textContent = moveCounter
 }
-document.querySelector('.add').addEventListener('click', updateScore)
+document.querySelector('.add').addEventListener('click', updateScoreAddition)
+
+function updateScoreMinus(event) {
+  moveCounter--
+  const subtractScore = document.querySelector('.team1 h3')
+  subtractScore.textContent = moveCounter
+}
+document.querySelector('.subtract').addEventListener('click', updateScoreMinus)
 
 function main() {}
 
