@@ -1,43 +1,82 @@
-function updateTeamName(event) {
+function main() {}
+function updateTeamNameOne(event) {
   const teamName = document.querySelector('.team1 h2')
   teamName.textContent = event.target.value
 }
-document.querySelector('.team1 input').addEventListener('input', updateTeamName)
+document
+  .querySelector('.team1 input')
+  .addEventListener('input', updateTeamNameOne)
 
-// const teamName = document.querySelectorAll('h2')
-// const inputElement = document.querySelectorAll('input')
-// function updateTeamName(event) {
-//   const currentInputValue = event.target.value
-//   inputElement.textContent = currentInputValue
-// }
-// teamName.forEach(element => element.addEventListener('input', updateTeamName))
+function updateTeamNameTwo(event) {
+  const teamName = document.querySelector('.team2 h2')
+  teamName.textContent = event.target.value
+}
+document
+  .querySelector('.team2 input')
+  .addEventListener('input', updateTeamNameTwo)
 
-const y = document.querySelector('.team1 h2')
-const x = y.textContent
-
-let moveCounter = 0
+const x = document.querySelector('.team1 h2')
+const winnerName = x.textContent
+let scoreCounter = 0
 function updateScoreAddition(event) {
-  moveCounter++
-  if (moveCounter > 21) {
-    window.alert(`You won ${x}`)
+  scoreCounter++
+  if (scoreCounter > 21) {
+    window.alert(`You won ${winnerName}`)
     return
   }
-  const addScore = document.querySelector('.team1 h3')
-  addScore.textContent = moveCounter
+  const teamScoreOne = document.querySelector('.team1 h3')
+  teamScoreOne.textContent = scoreCounter
 }
 document.querySelector('.add').addEventListener('click', updateScoreAddition)
 
 function updateScoreMinus(event) {
-  moveCounter--
-  if (moveCounter < 0) {
-    window.alert('ayyyy thats negative no way jose')
+  scoreCounter--
+  if (scoreCounter < 0) {
+    window.alert('No negatives')
     return
   }
-  const subtractScore = document.querySelector('.team1 h3')
-  subtractScore.textContent = moveCounter
+  const teamScoreOne = document.querySelector('.team1 h3')
+  teamScoreOne.textContent = scoreCounter
 }
 document.querySelector('.subtract').addEventListener('click', updateScoreMinus)
 
-function main() {}
+const y = document.querySelector('.team2 h2')
+const winnerNameTwo = y.textContent
+let scoreCounterTwo = 0
+function updateScoreAdditionTwo(event) {
+  scoreCounterTwo++
+  if (scoreCounterTwo > 21) {
+    window.alert(`You won ${winnerNameTwo}`)
+    return
+  }
+  const teamScoreTwo = document.querySelector('.team2 h3')
+  teamScoreTwo.textContent = scoreCounterTwo
+}
+document
+  .querySelector('.team2 .add')
+  .addEventListener('click', updateScoreAdditionTwo)
+
+function updateScoreMinusTwo(event) {
+  scoreCounterTwo--
+  if (scoreCounterTwo < 0) {
+    window.alert('No negatives')
+    return
+  }
+  const teamScoreTwo = document.querySelector('.team2 h3')
+  teamScoreTwo.textContent = scoreCounterTwo
+}
+document
+  .querySelector('.team2 .subtract')
+  .addEventListener('click', updateScoreMinusTwo)
+
+function setZero(event) {
+  teamScoreOne = document.querySelector('.team1 h3')
+  teamScoreTwo = document.querySelector('.team2, h3')
+  scoreCounter = 0
+  scoreCounterTwo = 0
+  teamScoreOne.textContent = scoreCounter
+  teamScoreTwo.textContent = scoreCounterTwo
+}
+document.querySelector('button').addEventListener('click', setZero)
 
 document.addEventListener('DOMContentLoaded', main)
